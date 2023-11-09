@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Formulario</h1>
+    <form action="3.php" method="get">
+      <label for="entrada">Entrada de temperaturas de la semana</label><br><br>
+
+        <label for="dias">Lunes</label>
+        <input type="number" id="lunes" name="dias[]"><br>
+        <label for="dias">Martes</label>
+        <input type="number" id="Martes" name="dias[]"><br>
+        <label for="dias">Miercoles</label>
+        <input type="number" id="Miercoles" name="dias[]"><br>
+        <label for="dias">Jueves</label>
+        <input type="number" id="Jueves" name="dias[]"><br>
+        <label for="dias">Viernes</label>
+        <input type="number" id="Viernes" name="dias[]"><br>
+        <label for="dias">Sabado</label>
+        <input type="number" id="Sabado" name="dias[]"><br>
+        <label for="dias">Domingo</label>
+        <input type="number" id="Domingo" name="dias[]">
+
+
+        <br><br>
+        <input type="submit" value="enviar datos">
+        <input type="reset" value="borrar datos">
+    </form>
+</body>
+</html>

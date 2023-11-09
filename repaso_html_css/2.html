@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversor de Moneda</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Conversor de Moneda</h1>
+    <form action="2.php" method="get">
+        <label for="cantidad">Cantidad de euros a cambiar:</label>
+        <input type="text" id="cantidad" name="cantidad" required><br><br>
+
+        <label for="moneda">Selecciona la moneda de destino:</label>
+        <select id="moneda" name="moneda" required>
+            <option value="dolares">Dólares USA</option>
+            <option value="libras">Libras Esterlinas</option>
+        </select><br><br>
+
+        <input type="submit" value="Convertir">
+    </form>
+</body>
+</html>
