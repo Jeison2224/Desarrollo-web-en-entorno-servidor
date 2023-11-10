@@ -26,7 +26,7 @@
         <label for="cli">Selecciona el cliente:</label>
         <select name="cli" id="cli">
         <?php
-        //el while que permite listar los nombres de los clientes con su telefono en el formulario
+
         while ($row = $clientesR->fetch_assoc()) {
             echo "<option value='" . $row['NombreCliente'] . "'>" . $row['NombreCliente'] . "</option>";
         }
@@ -40,8 +40,8 @@
 
     $query = "SELECT CodigoCliente FROM clientes WHERE NombreCliente='$cli'";
     $query2 = "SELECT * FROM pedidos WHERE CodigoCliente=($query)";
-    $query3 = "SELECT * FROM detallespedidos d INNER JOIN pedidos p on d.CodigoPedido = p.CodigoPedido WHERE CodigoCliente=($query)";
-    $result = $cone->query($query2);
+    $query3 = "SELECT * FROM detallepedidos d JOIN pedidos p on d.CodigoPedido = p.CodigoPedido WHERE CodigoCliente=($query)";
+    $result = $cone->query($query3);
 
     if ($result->num_rows > 0) {
         echo "<table border='1'>";
@@ -57,8 +57,8 @@
             echo "</tr>";
             echo "<tr>";
             echo "<td>" . $row['CodigoPedido'] . "</td>";
-            echo "<td>" . $row['FechaEntrega'] . "</td>";
-            echo "<td>" . $row['Estado'] . "</td>";
+            echo "<td>" . $row['PrcioUnidad'] . "</td>";
+            echo "<td>" . $row['Cantidad'] . "</td>";
             echo "</tr>";
         }
 
