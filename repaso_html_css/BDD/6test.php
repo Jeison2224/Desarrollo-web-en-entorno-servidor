@@ -34,20 +34,20 @@
         $codigoCliente = $_GET["codigoCliente"];
 
         // Realizar la actualización en la base de datos
-        $sql = "UPDATE clientes SET 
-                Nombre='$nombre', 
-                NombreContacto='$nombreC', 
-                ApellidoContacto='$apellidoC', 
-                Telefono=$tel, 
-                Fax=$fax, 
-                Direccion1='$direccion1', 
-                Direccion2='$direccion2', 
-                Ciudad='$ciudad', 
-                Region='$region', 
-                Pais='$pais', 
-                CodigoPostal=$codp, 
-                CodigoEmpleado=$code, 
-                LimiteCredito=$limiteC 
+        $sql = "UPDATE clientes SET
+                Nombre='$nombre',
+                NombreContacto='$nombreC',
+                ApellidoContacto='$apellidoC',
+                Telefono=$tel,
+                Fax=$fax,
+                Direccion1='$direccion1',
+                Direccion2='$direccion2',
+                Ciudad='$ciudad',
+                Region='$region',
+                Pais='$pais',
+                CodigoPostal=$codp,
+                CodigoEmpleado=$code,
+                LimiteCredito=$limiteC
                 WHERE CodigoCliente=$codigoCliente";
 
         if (mysqli_query($cone, $sql)) {
@@ -64,7 +64,6 @@
                 echo "<th>Nombre</th>";
                 echo "<th>Nombre Contacto</th>";
                 echo "<th>Apellido Contacto</th>";
-                // Agrega más columnas según sea necesario
                 echo "</tr>";
 
                 while ($row = $result->fetch_assoc()) {
@@ -73,7 +72,6 @@
                     echo "<td>" . $row['Nombre'] . "</td>";
                     echo "<td>" . $row['NombreContacto'] . "</td>";
                     echo "<td>" . $row['ApellidoContacto'] . "</td>";
-                    // Agrega más columnas según sea necesario
                     echo "</tr>";
                 }
 
@@ -88,7 +86,6 @@
     ?>
 
     <form action="5.php" method="get">
-        <!-- ... (Tu formulario sigue igual) ... -->
         <label for="codigoCliente">Código de Cliente a Modificar:</label>
         <input type="text" id="codigoCliente" name="codigoCliente" required><br>
         <input type="submit" value="Modificar">

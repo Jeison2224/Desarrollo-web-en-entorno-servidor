@@ -17,7 +17,7 @@
 
     <form action="6.1.php" method="get">
         <?php
-        //optener los datos de los clientes
+        //obtener los datos de los clientes
         $clientes = "SELECT NombreCliente, Telefono  FROM clientes";
         $clientesR = $cone->query($clientes);
         ?>
