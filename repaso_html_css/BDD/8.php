@@ -8,7 +8,7 @@
 <body>
     <?php
     //conexion a la base de datos
-    $cone = mysqli_connect   ("localhost", "jardinero", "jardinero")
+    $cone = mysqli_connect   ("localhost", "root", "")
     or die ("no se pudo conectar");
 
     mysqli_select_db ($cone, "jardineria")
@@ -39,30 +39,46 @@
     $cli = $_GET["cli"];
 
     $query = "SELECT CodigoCliente FROM clientes WHERE NombreCliente='$cli'";
-    $query2 = "SELECT * FROM pedidos WHERE CodigoCliente=($query)";
-    $query3 = "SELECT * FROM detallepedidos d JOIN pedidos p on d.CodigoPedido = p.CodigoPedido WHERE CodigoCliente=($query)";
-    $result = $cone->query($query3);
+    $query3 = "SELECT p.FechaPedido, d.CodigoPedido, pr.Nombre, d.PrecioUnidad, d.Cantidad, SUM(d.PrecioUnidad * d.Cantidad) AS ImporteTotal
+           FROM detallepedidos d
+           JOIN productos pr ON d.CodigoProducto = pr.CodigoProducto
+           JOIN pedidos p ON d.CodigoPedido = p.CodigoPedido
+           WHERE CodigoCliente=($query)
+           GROUP BY p.FechaPedido
+           ORDER BY p.FechaPedido, d.PrecioUnidad";
 
+    $result = $cone->query($query3);
+    
+    echo "<h1 style='color: blue;'>Listado de pedidos del cliente " .  $cli . "</h1>";
     if ($result->num_rows > 0) {
-        echo "<table border='1'>";
+        echo "<table border='1' width='500px';>";
 
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<th colspan='3'>Pedido Código " . $row['CodigoPedido'] . " de " . $row['FechaPedido'] . "</th>";
+            echo "<th colspan='4'>Pedido Código " . $row['CodigoPedido'] . " de " . $row['FechaPedido'] . "</th>";
             echo "</tr>";
             echo "<tr>";
             echo "<th>Nombre del producto</th>";
             echo "<th>precio Unidad</th>";
             echo "<th>Cantidad</th>";
+            echo "<th>Importe</th>";
             echo "</tr>";
             echo "<tr>";
-            echo "<td>" . $row['CodigoPedido'] . "</td>";
-            echo "<td>" . $row['PrcioUnidad'] . "</td>";
+            echo "<td>" . $row['Nombre'] . "</td>";
+            echo "<td>" . $row['PrecioUnidad'] . "</td>";
             echo "<td>" . $row['Cantidad'] . "</td>";
+            echo "<td>" . $row['PrecioUnidad']*$row['Cantidad']  . "</td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td colspan='3'>Importe total de este pedido</td>";
+            echo "<td>" . $row['ImporteTotal'] . "</td>";
             echo "</tr>";
         }
 
         echo "</table>";
+        echo $row['ImporteFinal'];
+        echo "<br>";
+        echo "<br>";
     } else {
         echo "No se encontraron resultados después de la actualización";
     }
