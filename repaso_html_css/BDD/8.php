@@ -25,6 +25,7 @@
 
         <label for="cli">Selecciona el cliente:</label>
         <select name="cli" id="cli">
+
         <?php
 
         while ($row = $clientesR->fetch_assoc()) {
@@ -48,7 +49,7 @@
            ORDER BY p.FechaPedido, d.PrecioUnidad";
 
     $result = $cone->query($query3);
-    
+
     echo "<h1 style='color: blue;'>Listado de pedidos del cliente " .  $cli . "</h1>";
     if ($result->num_rows > 0) {
         echo "<table border='1' width='500px';>";

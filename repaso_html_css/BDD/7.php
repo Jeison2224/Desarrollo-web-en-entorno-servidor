@@ -24,7 +24,7 @@
     <?php
     $_SERVER["REQUEST_METHOD"] == "GET";
     $tel = $_GET["tel"];
-    // Obtener los datos actualizados para mostrar en una tabla
+    //Obtener los datos actualizados para mostrar en una lista
     $query = "SELECT * FROM clientes WHERE Telefono='$tel'";
     $result = $cone->query($query);
 
