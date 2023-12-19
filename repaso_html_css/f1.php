@@ -28,9 +28,6 @@ function tabla($filas, $columnas){
     echo $tabla;
 }
 
-echo "<h1>Tabla 1, $filas x $columnas</h1>";
-tabla($filas, $columnas);
-echo "<br>";
 echo "<h1>Tabla 1, 5 x 5</h1>";
 tabla(5, 5);
 echo "<br>";

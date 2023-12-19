@@ -15,7 +15,6 @@
             <option value="Frutales">Herbaceas</option>
             <option value="Frutales">Ornamentales</option>
         </select><br>
-
         <input type="submit" value="Enviar">
     </form>
     <?php
