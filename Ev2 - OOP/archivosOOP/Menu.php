@@ -7,12 +7,12 @@ class Menu{
     private $postres = array();
 
 
-    public function __construct($dia, $fecha, $primerosPlatos, $segundosPlatos, $postres){
+    public function __construct($dia, $fecha){
         $this->dia=$dia;
         $this->fecha=$fecha;
-        $this->primerosPlatos=$primerosPlatos;
-        $this->segundosPlatos=$segundosPlatos;
-        $this->postres=$postres;
+        $this->primerosPlatos;
+        $this->segundosPlatos;
+        $this->postres;
     }
 
     public function getDia() {

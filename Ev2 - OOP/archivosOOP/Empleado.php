@@ -45,5 +45,13 @@ class Empleado extends Persona
             return "No debe pagar impuestos";
         }
     }
+
+	public function imprime(){
+		$n = parent::getNombre();
+		$p = parent::getApellidos();
+		$pu = $this->puesto;
+
+		return $n;
+	}
 }
 ?>

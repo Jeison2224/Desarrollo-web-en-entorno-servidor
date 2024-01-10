@@ -84,24 +84,25 @@
 		}
 	}
 
+
+        // Se crea un objeto, es decir una instancia, de la clase Persona:
+    //$objPersona = new Persona("Manuel","Sánchez Pérez","H","3-12-2000");
+
+    /*Se interacciona con el objeto a través de sus métodos*/
+    //echo "Nombre: ".$objPersona->getNombre()."<br>";
+    // Devuelve: "Nombre: Manuel"
+
+    //echo "Apellidos: ".$objPersona->getApellidos()."<br>";
+    // Devuelve: "Apellidos: Sánchez Pérez"
+
     // Se crea un objeto, es decir una instancia, de la clase Persona:
-$objPersona = new Persona("Manuel","Sánchez Pérez","H","3-12-2000");
+    //$objPersona = new Persona("Manuel","Sánchez Pérez","H","3-12-2000");
 
-/*Se interacciona con el objeto a través de sus métodos*/
-echo "Nombre: ".$objPersona->getNombre()."<br>";
-// Devuelve: "Nombre: Manuel"
+    //echo "Sexo: ".$objPersona->getSexo()."<br>"; // Devuelve: H
 
-echo "Apellidos: ".$objPersona->getApellidos()."<br>";
-// Devuelve: "Apellidos: Sánchez Pérez"
+    //echo "Nombre completo: ".$objPersona->getNombreCompleto()."<br>";
+    // Devuelve: Manuel, Sanchéz Pérez
 
-// Se crea un objeto, es decir una instancia, de la clase Persona:
-$objPersona = new Persona("Manuel","Sánchez Pérez","H","3-12-2000");
-
-echo "Sexo: ".$objPersona->getSexo()."<br>"; // Devuelve: H
-
-echo "Nombre completo: ".$objPersona->getNombreCompleto()."<br>";
-// Devuelve: Manuel, Sanchéz Pérez
-
-echo "Edad: ".$objPersona->calculaEdad()."<br><br>"; // Devuelve: 23
+    //echo "Edad: ".$objPersona->calculaEdad()."<br><br>"; // Devuelve: 23
 ?>
 
