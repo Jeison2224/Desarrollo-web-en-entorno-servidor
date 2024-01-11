@@ -2,9 +2,9 @@
 class Menu{
     private $dia;
     private $fecha;
-    private $primerosPlatos = array();
-    private $segundosPlatos = array();
-    private $postres = array();
+    private $primerosPlatos = [];
+    private $segundosPlatos = [];
+    private $postres = [];
 
 
     public function __construct($dia, $fecha){
@@ -36,7 +36,7 @@ class Menu{
 	}
 
 	public function setPrimerosPlatos( $primerosPlatos ) {
-		return $this->primerosPlatos = $primerosPlatos;
+		return $this->primerosPlatos[] = $primerosPlatos;
 	}
 
     public function getSegundosPlatos() {
@@ -44,7 +44,7 @@ class Menu{
 	}
 
 	public function setSegundosPlatos( $segundosPlatos ) {
-		return $this->segundosPlatos = $segundosPlatos;
+		return $this->segundosPlatos[] = $segundosPlatos;
 	}
 
     public function getPostres() {
@@ -52,7 +52,7 @@ class Menu{
 	}
 
 	public function setPostres( $postres ) {
-		return $this->postres = $postres;
+		return $this->postres[] = $postres;
 	}
 }
 ?>

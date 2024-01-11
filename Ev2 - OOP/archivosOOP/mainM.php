@@ -14,59 +14,103 @@
         <nav></nav>
         <main>
         <?php
+        session_start();
         require_once("Menu.php");
 
             if ($_REQUEST){
-                $dia = $_GET["dia"];
-                $fecha = $_GET["fecha"];
-                $men = new Menu($dia, $fecha);
 
-                if ($_REQUEST["Añadir"]){
+                if (!isset($_SESSION['menu'])) {
+                    $men = new Menu($dia, $fecha);
+                } else {
+                    $men = unserialize($_SESSION['menu']);
+                }
 
-                    $men2 = unserialize($s);
+                if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                    if (isset($_GET['primerosPlatos'])) {
+                        $men->setPrimerosPlatos($_GET['primerosPlatos']);
+                    }
+                    if (isset($_GET['segundosPlatos'])) {
+                        $men->setSegundosPlatos($_GET['segundosPlatos']);
+                    }
+                    if (isset($_GET['postres'])) {
+                        $men->setPostres($_GET['postres']);
+                    }
+                }
 
-                    $primero = $_GET["primerosPlatos"];
-                    $segundo = $_GET["segundosPlatos"];
-                    $postres = $_GET["postres"];
 
-                    $men->setPrimerosPlatos($primero);
-                    $men->setSegundosPlatos($segundo);
-                    $men->setPostres($postres);
+                if (isset($_GET['Añadir1']) || isset($_GET['Añadir2']) || isset($_GET['Añadir3'])){
 
-                    $men2->setPrimerosPlatos($primero);
-                    $men2->setSegundosPlatos($segundo);
-                    $men2->setPostres($postres);
+                        echo "<h2>Menú del " . $men->getDia() . ", " . $men->getFecha() . "</h2>";
+                        echo "<form action='' method='get'>
+                            <h3>Primeros platos</h3><br>";
 
-                    echo "<h2>Menú del $dia, $fecha</h2>";
-                    echo "<form action='' method='get'>
-                        <h3>Primeros platos</h3>
-                        <input type='text' name='primerosPlatos[]'>
-                        <input type='submit' value='Añadir'><br>
-                        <h3>Segundos platos</h3>
-                        <input type='text' name='segundosPlatos[]'>
-                        <input type='submit' value='Añadir'><br>
-                        <h3>Postres</h3>
-                        <input type='text' name='postres[]'>
-                        <input type='submit' value='Añadir'><br><br><br>
-                        <input type='submit' value='Confeccionar carta'>
-                    </form>";
+                            foreach ($men->getPrimerosPlatos() as $plato) {
+                                    echo $plato ;
+                            }
+                        echo "<br>";
 
-                    $s = serialize($men);
+                        echo "<input type='text' name='primerosPlatos'>
+                            <input type='submit' value='Añadir' name='Añadir1'><br>
+                            <h3>Segundos platos</h3><br>";
+
+                            foreach ($men->getSegundosPlatos() as $plato) {
+                                echo $plato;
+                            }
+                        echo "<br>";
+
+                        echo "<input type='text' name='segundosPlatos'>
+                            <input type='submit' value='Añadir' name='Añadir2'><br>
+                            <h3>Postres</h3><br>";
+
+                            foreach ($men->getPostres() as $plato) {
+                                echo $plato ;
+                            }
+                        echo "<br>";
+
+                        echo "<input type='text' name='postres'>
+                            <input type='submit' value='Añadir' name='Añadir3'><br><br><br>
+                            <input type='submit' value='Confeccionar carta' name='confe'>
+                        </form>";
+
+
+                        $_SESSION['menu'] = serialize($men);
 
                 }
+                elseif (isset($_GET["confe"])) {
+                    ?>
+                        <div class="confe">
+                            <h2>Menú del día</h2>
+                            <?php echo "<h3>" . $men->getDia() . ", " . $men->getFecha() . "</h3>"; ?>
+                            <br><br>
+                            <h3>Primeros platos</h3>
+                            <?php foreach ($men->getPrimerosPlatos() as $plato) {
+                            echo $plato ;
+                            }?><br><br><br>
+                            <h3>Segundos platos</h3>
+                            <?php foreach ($men->getSegundosPlatos() as $plato) {
+                            echo $plato ;
+                            }?><br><br><br>
+                            <h3>Postres</h3>
+                            <?php foreach ($men->getPostres() as $plato) {
+                            echo $plato ;
+                            }?>
+                        </div>
+                    <?php
+                }
                 else {
-                    echo "<h2>Menú del $dia, $fecha</h2>";
+                    echo "<h2>Menú del " . $men->getDia() . ", " . $men->getFecha() . "</h2>";
                     echo "<form action='' method='get'>
                         <h3>Primeros platos</h3>
-                        <input type='text' name='primerosPlatos[]'>
-                        <input type='submit' value='Añadir'><br>
+                        <input type='text' name='primerosPlatos'>
+                        <input type='submit' value='Añadir' name='Añadir1'><br>
                         <h3>Segundos platos</h3>
-                        <input type='text' name='segundosPlatos[]'>
-                        <input type='submit' value='Añadir'><br>
+                        <input type='text' name='segundosPlatos'>
+                        <input type='submit' value='Añadir' name='Añadir2'><br>
                         <h3>Postres</h3>
-                        <input type='text' name='postres[]'>
-                        <input type='submit' value='Añadir'>
+                        <input type='text' name='postres'>
+                        <input type='submit' value='Añadir' name='Añadir3'>
                     </form>";
+                    $_SESSION['menu'] = serialize($men);
                 }
             }
             else {
@@ -80,6 +124,7 @@
                     <input type="submit" value="Diseñar menú">
                 </form>
                 <?php
+
             }
 
         ?>
