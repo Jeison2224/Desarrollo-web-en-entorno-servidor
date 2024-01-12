@@ -13,8 +13,8 @@
     <section>
         <nav></nav>
         <main>
-<?php
-?>
+            <?php
+            ?>
 		</main>
 		<aside></aside>
 	</section>
