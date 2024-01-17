@@ -47,7 +47,7 @@
                     $numPrimerosPlatos = count($primerosPlatos);
 
                     foreach ($primerosPlatos as $index => $plato) {
-                        echo $plato;
+                        echo "$plato\n";
                     }
 
                     echo "<br><input type='text' name='primerosPlatos'>
@@ -58,7 +58,7 @@
                     $numSegundosPlatos = count($segundosPlatos);
 
                     foreach ($segundosPlatos as $index => $plato) {
-                        echo $plato;
+                        echo "$plato\n";
                     }
 
                     echo "<br><input type='text' name='segundosPlatos'>
@@ -69,7 +69,7 @@
                     $numPostres = count($postres);
 
                     foreach ($postres as $index => $plato) {
-                        echo $plato;
+                        echo "$plato\n";
                     }
 
                     echo "<br><input type='text' name='postres'>

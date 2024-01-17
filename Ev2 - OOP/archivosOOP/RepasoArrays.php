@@ -24,16 +24,18 @@
                     foreach ($array as $modelo) {
                         foreach ($data as $key => $value) {
                             $tabla[$modelo][$key]=$value[$c];
-                            $c++;
                         }
-
-
+                        $c++;
                     }
-
-                    //$tabla[$key[$i]]=$valor[$i]
-                    //$tabla[$value1]=[$key1][$value2]=[$key2];
                 }
+                /*echo "<prev>";
                 print_r($tabla);
+                echo "</prev>";*/
+                $i = 0;
+                /*foreach ($tabla as $key => $value) {
+                    echo $key;
+                    $i++;
+                }*/
             ?>
 		</main>
 		<aside></aside>

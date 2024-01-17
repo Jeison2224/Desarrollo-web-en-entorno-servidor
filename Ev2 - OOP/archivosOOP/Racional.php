@@ -64,15 +64,10 @@ class Racional {
 
 // Ejemplo de uso:
 
-$racional1 = new Racional();
+/*$racional1 = new Racional();
 $racional2 = new Racional(5);
 $racional3 = new Racional(5, 7);
 $racional4 = new Racional("9/7");
-
-echo "Racional 1: $racional1\n";
-echo "Racional 2: $racional2\n";
-echo "Racional 3: $racional3\n";
-echo "Racional 4: $racional4\n";
 
 $racional1->sumar($racional2);
 echo "Suma (Racional 1 + Racional 2): $racional1\n";
@@ -85,4 +80,9 @@ echo "Multiplicación (Racional 2 * Racional 4): $racional2\n";
 
 $racional1->dividir($racional3);
 echo "División (Racional 1 / Racional 3): $racional1\n";
+
+echo "Racional 1: $racional1\n";
+echo "Racional 2: $racional2\n";
+echo "Racional 3: $racional3\n";
+echo "Racional 4: $racional4\n";*/
 
