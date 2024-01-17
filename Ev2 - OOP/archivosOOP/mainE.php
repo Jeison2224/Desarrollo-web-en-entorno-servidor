@@ -16,7 +16,7 @@
 <?php
     require_once("Empleado.php");
     $emp = new Empleado("Pedro","Agustin De La Paz","H","3-8-2002","Programador",1200);
-    $emp->imprime();
+    echo $emp->imprime();
 ?>
 		</main>
 		<aside></aside>

@@ -46,12 +46,15 @@ class Empleado extends Persona
         }
     }
 
-	public function imprime(){
-		$n = parent::getNombre();
-		$p = parent::getApellidos();
-		$pu = $this->puesto;
-
-		return $n;
+	public function imprime() {
+		$nombreCompleto = parent::getNombre() . ' ' . parent::getApellidos();
+		$puesto = $this->puesto;
+		$sueldo = $this->sueldo;
+	
+		$informacionEmpleado = "Nombre: $nombreCompleto\nPuesto: $puesto\nSueldo: $sueldo";
+	
+		return $informacionEmpleado;
 	}
+	
 }
 ?>
