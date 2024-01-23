@@ -50,8 +50,9 @@ class Empleado extends Persona
 		$nombreCompleto = parent::getNombre() . ' ' . parent::getApellidos();
 		$puesto = $this->puesto;
 		$sueldo = $this->sueldo;
+		$pagar = $this->pagar();
 	
-		$informacionEmpleado = "Nombre: $nombreCompleto\nPuesto: $puesto\nSueldo: $sueldo";
+		$informacionEmpleado = "$nombreCompleto, $puesto, $pagar<br><br>";
 	
 		return $informacionEmpleado;
 	}

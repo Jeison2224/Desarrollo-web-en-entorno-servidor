@@ -41,44 +41,66 @@
                 if (isset($_GET['Añadir1']) || isset($_GET['Añadir2']) || isset($_GET['Añadir3'])){
                     echo "<h2>Menú del " . $men->getDia() . ", " . $men->getFecha() . "</h2>";
                     echo "<form action='' method='get'>
-                            <h3>Primeros platos</h3><br>";
+                            <h3>Primeros platos</h3>";
 
                     $primerosPlatos = $men->getPrimerosPlatos();
                     $numPrimerosPlatos = count($primerosPlatos);
 
-                    foreach ($primerosPlatos as $index => $plato) {
+                    /*foreach ($primerosPlatos as $index => $plato) {
                         echo "$plato\n";
+                    }*/
+
+                    foreach ($primerosPlatos as $index => $plato) { 
+                        echo $plato; 
+                        if (!empty($plato)) { 
+                            echo "<br>"; 
+                        } 
                     }
 
-                    echo "<br><input type='text' name='primerosPlatos'>
+                    echo "<input type='text' name='primerosPlatos'>
                         <input type='submit' value='Añadir' name='Añadir1'><br>
-                        <h3>Segundos platos</h3><br>";
+                        <h3>Segundos platos</h3>";
 
                     $segundosPlatos = $men->getSegundosPlatos();
                     $numSegundosPlatos = count($segundosPlatos);
 
-                    foreach ($segundosPlatos as $index => $plato) {
+                    /*foreach ($segundosPlatos as $index => $plato) {
                         echo "$plato\n";
+                    }*/
+
+                    foreach ($segundosPlatos as $index => $plato) { 
+                        echo $plato; 
+                        if (!empty($plato)) { 
+                            echo "<br>"; 
+                        } 
                     }
 
-                    echo "<br><input type='text' name='segundosPlatos'>
+                    echo "<input type='text' name='segundosPlatos'>
                         <input type='submit' value='Añadir' name='Añadir2'><br>
-                        <h3>Postres</h3><br>";
+                        <h3>Postres</h3>";
 
                     $postres = $men->getPostres();
                     $numPostres = count($postres);
 
-                    foreach ($postres as $index => $plato) {
+                    /*foreach ($postres as $index => $plato) {
                         echo "$plato\n";
+                    }*/
+
+                    foreach ($postres as $index => $plato) { 
+                        echo $plato; 
+                        if (!empty($plato)) { 
+                            echo "<br>"; 
+                        } 
                     }
 
-                    echo "<br><input type='text' name='postres'>
+                    echo "<input type='text' name='postres'>
                         <input type='submit' value='Añadir' name='Añadir3'><br><br><br>
                         <input type='submit' value='Confeccionar carta' name='confe'>
                     </form>";
-
+                    
                     $_SESSION['menu'] = serialize($men);
                     //session_destroy();
+                    
                 }
                 elseif (isset($_GET["confe"])) {
                     ?>
@@ -89,11 +111,11 @@
                             <h3>Primeros platos</h3>
                             <?php foreach ($men->getPrimerosPlatos() as $plato) {
                             echo $plato ."<br>" ;
-                            }?><br><br><br>
+                            }?><br><br>
                             <h3>Segundos platos</h3>
                             <?php foreach ($men->getSegundosPlatos() as $plato) {
                             echo $plato ."<br>" ;
-                            }?><br><br><br>
+                            }?><br><br>
                             <h3>Postres</h3>
                             <?php foreach ($men->getPostres() as $plato) {
                             echo $plato ."<br>" ;
