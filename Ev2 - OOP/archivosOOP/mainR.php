@@ -21,11 +21,8 @@
                 else {
                     ?>
                     <fieldset class="reglas">
-                        <tr>
-                            <th>Reglas de uso de la calculadora</th>
-                        </tr>
-                        <tr>
-                            <td>
+                            <legend>Reglas de uso de la calculadora</legend>
+                            <label for="listas">                         
                                 <ul class="lista1">
                                     <li>
                                         La calculadora se usa escribiendo la operación completa.
@@ -60,8 +57,16 @@
                                         </ul>
                                     </li>
                                 </ul>
-                            </td>
-                        </tr>
+                            </label>   
+                    </fieldset>
+                    <fieldset class="operacion">
+                        <legend><b>Establece la operacion</b></legend>
+                        <label for="operacion">Operacion: </label>
+                        <input type="text" name="datos">
+                        <input type="submit" value="Calcular">
+                    </fieldset>
+                    <fieldset class="resultado">
+                        <legend>Resultado</legend>
                     </fieldset>
 
                     <?php

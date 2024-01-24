@@ -90,3 +90,42 @@ footer{
     min-width: 100vw;
     background-color: black;
 }
+
+.confe {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.reglas{
+    background-color: rgb(236, 236, 236);
+    float: left;
+    width: 35%;
+    border-radius: 10px;
+    border-color: blue;
+    padding: 35px;
+}
+
+.lista2{
+    position: relative;
+    left: 40px;
+}
+
+.operacion {
+    background-color: rgb(236, 236, 236);
+    float: left;
+    width: 35%;
+    border-radius: 10px;
+    border-color: blue;
+    padding: 35px;
+}
+
+.resultado {
+    background-color: rgb(236, 236, 236);
+    float: left;
+    width: 35%;
+    border-radius: 10px;
+    border-color: blue;
+    padding: 35px;
+}

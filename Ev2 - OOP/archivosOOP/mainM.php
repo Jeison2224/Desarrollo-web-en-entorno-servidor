@@ -105,21 +105,32 @@
                 elseif (isset($_GET["confe"])) {
                     ?>
                         <div class="confe">
+                            <img src="images/imgA.png" alt="">
                             <h2>Menú del día</h2>
                             <?php echo "<h3>" . $men->getDia() . ", " . $men->getFecha() . "</h3>"; ?>
                             <br><br>
                             <h3>Primeros platos</h3>
                             <?php foreach ($men->getPrimerosPlatos() as $plato) {
-                            echo $plato ."<br>" ;
-                            }?><br><br>
+                            echo $plato ;
+                            if (!empty($plato)) { 
+                                echo "<br>"; 
+                            } 
+                            }?><br>
                             <h3>Segundos platos</h3>
                             <?php foreach ($men->getSegundosPlatos() as $plato) {
-                            echo $plato ."<br>" ;
-                            }?><br><br>
+                            echo $plato ;
+                            if (!empty($plato)) { 
+                                echo "<br>"; 
+                            } 
+                            }?><br>
                             <h3>Postres</h3>
                             <?php foreach ($men->getPostres() as $plato) {
-                            echo $plato ."<br>" ;
+                            echo $plato ;
+                            if (!empty($plato)) { 
+                                echo "<br>"; 
+                            } 
                             }?>
+                            <img src="images/imgD.png" alt="">
                         </div>
                     <?php
                 }
