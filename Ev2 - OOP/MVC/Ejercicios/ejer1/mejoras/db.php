@@ -1,7 +1,6 @@
 <?php
 
-class Db
-{
+class Db {
     private $db; // Aquí guardaremos la conexión con la base de datos
 
     /**

@@ -2,11 +2,11 @@
 
 include "model.php";
 
-class Articles extends Model
+class Gamas extends Model
 {
     public function __construct()
     {
-        parent::__construct("articles");
+        parent::__construct("gamas");
     }
 
     //Aquí puedes añadir métodos específicos para esta tabla

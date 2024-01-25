@@ -4,9 +4,9 @@
      <?php
      $articles = $data['articles'];
      foreach($articles as $article) {
-        echo "<tr>
-           <td>".$articles['fecha']."</td>
-           <td>".$articles['titulo']."</td>
+         print "<tr>
+           <td>" . $articles['fecha'] . "</td>
+           <td>" . $articles['titulo'] . "</td>
         </tr>";
      }
      ?>

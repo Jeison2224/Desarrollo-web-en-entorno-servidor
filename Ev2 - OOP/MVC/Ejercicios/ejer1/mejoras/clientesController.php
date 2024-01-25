@@ -2,17 +2,18 @@
 
 // Controlador. Debería tener un método por cada posible valor de la variable "action".
 include "view.php";
-include "articles.php";
+include "clientes.php";
 
-class ArticlesController
-{
+class ClientesController {
     public function showAll()
     {
-        $articles = new Articles();
-        $data['articles'] = $articles->getAll();
-        View::show("showAllArticles", $data);
+        $clientes = new Clientes();
+        $data['clientes'] = $clientes->getAll();
+        View::show("showAll", $data);
     }
 
     // Añadir a partir de aquí un método por cada posible valor de la variable "action"
 
 }
+
+?>

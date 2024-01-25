@@ -3,9 +3,9 @@
     <tr> <th>Fecha</th> <th>Titulo</th> </tr>
 <?php
     foreach($articles as $article) {
-    echo "<tr>
-        <td>".$article['fecha']."</td>
-        <td>".$article['titulo']."</td>
+        print "<tr>
+        <td>" . $article['fecha'] . "</td>
+        <td>" . $article['titulo'] . "</td>
     </tr>";
     }
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-include "clientesController.php";
+include "gamasController.php";
 
 // Miramos a ver si se indica alguna acción en la URL
 if (!isset($_REQUEST['action'])) {
@@ -14,7 +14,7 @@ if (!isset($_REQUEST['action'])) {
 // Hacemos lo mismo con el nombre del controlador
 if (!isset($_REQUEST['controller'])) {
     // No hay controlador en la URL. Asignaremos un controlador por defecto (Articles). Por supuesto, puedes cambiarlo por otro que vaya bien con tu aplicación.
-    $controllerClassName = "ClientesController";
+    $controllerClassName = "GamasController";
 } else {
     // Sí hay controlador en la URL. Recuperamos su nombre.
     $controllerClassName = $_REQUEST['controller'];

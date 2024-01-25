@@ -11,7 +11,7 @@ class Model
     {
         $this->table = $tableName;
         $this->db = new Db();
-        $this->db->createConnection('mi-host', 'mi-usuario', 'mi-clave', 'mi-base-de-datos');
+        $this->db->createConnection("localhost", "root", "", "jardineria");
     }
 
     public function getAll()
