@@ -5,9 +5,9 @@
      $clientes = $data['clientes'];
      foreach($clientes as $cliente) {
         print "<tr>
-           <td>".$cliente['CodigoCliente']."</td>
-           <td>".$cliente['NombreCliente']."</td>
-           <td>".$cliente['NombreContacto']."</td>
+           <td>".$cliente[0]."</td>
+           <td>".$cliente[1]."</td>
+           <td>".$cliente[2]."</td>
         </tr>";
      }
      ?>

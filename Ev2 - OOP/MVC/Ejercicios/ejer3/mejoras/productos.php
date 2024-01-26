@@ -2,7 +2,7 @@
 
 include "model.php";
 
-class Gamas extends Model
+class Productos extends Model
 {
     public function __construct()
     {

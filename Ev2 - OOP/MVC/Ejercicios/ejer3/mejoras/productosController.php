@@ -2,19 +2,19 @@
 
 // Controlador. Debería tener un método por cada posible valor de la variable "action".
 include "view.php";
-include "gamas.php";
+include "productos.php";
 
-class GamasController {
-    public function showAllForm() {
-        $gamas = new Gamas();
-        $data['productos'] = $gamas->getAll();
+class ProductosController {
+    /*public function showAllForm() {
+        $productos = new Productos();
+        $data['productos'] = $productos->getAll();
         View::show("showAllForm", $data);
-    }
+    }*/
 
     public function showAll()
     {
-        $gamas = new Gamas();
-        $data['productos'] = $gamas->getAll();
+        $productos = new Productos();
+        $data['productos'] = $productos->getAll();
         View::show("showAll", $data);
     }
 
