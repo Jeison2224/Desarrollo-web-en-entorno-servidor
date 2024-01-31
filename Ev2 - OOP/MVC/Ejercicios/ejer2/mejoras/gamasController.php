@@ -5,17 +5,10 @@ include "view.php";
 include "gamas.php";
 
 class GamasController {
-    public function showAllForm() {
+    public function showGamas() {
         $gamas = new Gamas();
         $data['productos'] = $gamas->getAll();
-        View::show("showAllForm", $data);
-    }
-
-    public function showAll()
-    {
-        $gamas = new Gamas();
-        $data['productos'] = $gamas->getAll();
-        View::show("showAll", $data);
+        View::show("showProducts", $data);
     }
 
     // Añadir a partir de aquí un método por cada posible valor de la variable "action"

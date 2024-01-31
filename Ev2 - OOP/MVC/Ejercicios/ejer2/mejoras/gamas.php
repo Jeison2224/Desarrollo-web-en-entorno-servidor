@@ -9,6 +9,12 @@ class Gamas extends Model
         parent::__construct("productos");
     }
 
+    public function getGamas() {
+        $gamas = $this->db->dataQuery('SELECT Gama, DescripcionTexto FROM gamasproductos ORDER BY DescripcionTexto');
+        $this->db->closeConnection();
+        return $gamas;
+    }
+
     //Aquí puedes añadir métodos específicos para esta tabla
 
 }
