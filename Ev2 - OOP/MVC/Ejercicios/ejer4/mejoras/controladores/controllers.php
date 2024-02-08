@@ -1,5 +1,5 @@
 <?php
-    include "clientsController.php";
-    include "productsController.php";
-    include "gamasController.php";
+    include "clientesController.php";
+    //include "productosController.php";
+    //include "gamasController.php";
 ?>

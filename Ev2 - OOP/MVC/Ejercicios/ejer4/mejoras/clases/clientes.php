@@ -15,6 +15,12 @@ class Clientes extends Model
         $this->db->closeConnection();
         return $clients;
     }
+
+    public function getClientesByRange($pais) {
+        $clientes = $this->db->dataQuery("SELECT CodigoCliente, NombreCliente, NombreContacto, ApellidoContacto from Clientes where Pais='$pais'");
+        $this->db->closeConnection();
+        return $clientes;
+    }
 }
 
 ?>

@@ -15,7 +15,7 @@
 
     echo "</select></p><br>";
 
-    echo "<input type='hidden' name='controller' value='ClientesController'>";
+    echo "<input type='hidden' name='controller' value='clientesController'>";
     echo "<input type='hidden' name='action' value='showClientesByRange'>";
 
     echo "<p><input type='submit' name='enviar' value='Enviar consulta'></p>";
