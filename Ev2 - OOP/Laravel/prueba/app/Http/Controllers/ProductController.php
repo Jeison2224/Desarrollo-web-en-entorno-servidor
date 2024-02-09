@@ -19,7 +19,7 @@ class ProductController extends Controller
     }
 
     public function create() {
-        return view('form');
+        return view('product/form');
     }
 
     public function store(Request $r) {
@@ -34,7 +34,7 @@ class ProductController extends Controller
 
     public function edit($id) {
         $product = Product::find($id);
-        return view('form', array('product' => $product));
+        return view('product/form', array('product' => $product));
     }
 
     public function update($id, Request $r) {

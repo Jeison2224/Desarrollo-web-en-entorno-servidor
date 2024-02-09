@@ -1,7 +1,8 @@
 <html>
+
     <head>
        <title>@yield('title')</title>
-       <link>@yield('css')</link>
+       <link rel="stylesheet" href="../public/estilo.css">
     </head>
     <body>
         <header>

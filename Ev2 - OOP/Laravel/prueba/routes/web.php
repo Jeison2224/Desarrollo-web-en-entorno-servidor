@@ -19,5 +19,6 @@ Route::get('/', function () {
 
 Route::resource('product', 'productController');
 Route::resource('supplier', 'supplierController');
+Route::resource('contact', 'contactController');
 
 Route::get('product/delete/{product}', 'ProductController@destroy')->name('product.myDestroy');

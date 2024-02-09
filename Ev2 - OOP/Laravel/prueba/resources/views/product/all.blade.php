@@ -1,5 +1,7 @@
 @extends("master")
 
+@section("head")
+
 @section("title", "Administración de productos")
 
 @section("header", "Administración de productos")
