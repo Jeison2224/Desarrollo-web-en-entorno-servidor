@@ -7,16 +7,23 @@
 @section("header", "Peliculas")
 
 @section("content")
+    <h1>PELICULAS ONLINE</h1><br>
+    <button>Ultimas novedades</button> <button>Próximos estrenos</button><br><br><br>
     @isset($movie)
         <form action="{{ route('movie.update', ['movie' => $movie->id]) }}" method="POST">
         @method("PUT")
     @else
-        <form action="{{ route('movie.store') }}" method="POST">
     @endisset
         @csrf
-        Titulo:<input type="text" name="name" value=""><br>
-        Director:<input type="text" name="description" value=""><br>
-        Genero:<input type="text" name="price" value="{{$movie->genre ?? '' }}"><br>
-        <input type="submit">
-        </form>
+        <label class="titu" for="titulo">Titulo:</label><br>
+        <input class="titu" type="text" name="name" value=""><br><br>
+
+        <label class="titu" for="director">Director:</label><br>
+        <input class="titu" type="text" name="director" value=""><br><br>
+
+        Genero: <br>
+        @foreach ($genres as $lista)
+            <input class="button" type="button" value={{$lista->genre}}>
+        @endforeach
+
 @endsection

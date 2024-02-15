@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Movie;
+use App\Models\Genre;
 
 class MovieController extends Controller
 {
@@ -20,7 +21,9 @@ class MovieController extends Controller
     }
 
     public function create() {
-        return view('form');
+        $genres = Genre::all();
+        $movies = Movie::all();
+        return view('form', array('movies' => $movies,'genres' => $genres));
     }
 
     public function store(Request $r) {
@@ -38,8 +41,8 @@ class MovieController extends Controller
     }
 
     public function edit($id) {
-        $product = Movie::find($id);
-        return view('form', array('movie' => $product));
+        $movie = Movie::find($id);
+        return view('form', array('movie' => $movie));
     }
 
     public function update($id, Request $r) {

@@ -2,31 +2,21 @@
 
     <head>
        <title>@yield('title')</title>
-       <link rel="stylesheet" href="../public/estilo.css">
+       <link rel="stylesheet" href="{{ asset('../public/css/estilo.css') }}">
     </head>
     <body>
         <header>
-            @yield('header')
         </header>
-        <nav>
-            @yield('nav')
-        </nav>
         @section('sidebar')
-
-        @show
         <section>
-            <main>
-                @yield('main')
+            <nav>
                 <div class="container">
                     @yield('content')
                 </div>
+            </nav>
+            <main>
             </main>
         </section>
-        <aside>
-            @yield('aside')
-        </aside>
-        <footer>
-            @yield('footer')
-        </footer>
+        <footer></footer>
     </body>
 </html>

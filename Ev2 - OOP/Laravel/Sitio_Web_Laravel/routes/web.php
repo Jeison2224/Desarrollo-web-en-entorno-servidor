@@ -17,4 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('movie', 'movieController');
+Route::get('/movie', [App\Http\Controllers\MovieController::class, 'create'])->name('movies.list');
