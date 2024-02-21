@@ -22,8 +22,17 @@
         <input class="titu" type="text" name="director" value=""><br><br>
 
         Genero: <br>
-        @foreach ($genres as $lista)
+       {{-- @foreach ($genres as $lista)
             <input class="button" type="button" value={{$lista->genre}}>
-        @endforeach
+        @endforeach --}} 
+        <div class="button-container">
+            @foreach ($genres as $lista)
+                <input class="button" type="button" value={{$lista->genre}}>
+                @if ($loop->iteration % 4 == 0)
+                    <br> {{-- Agrega un salto de línea después de cada cuarto elemento --}}
+                @endif
+            @endforeach
+</div>
+
 
 @endsection

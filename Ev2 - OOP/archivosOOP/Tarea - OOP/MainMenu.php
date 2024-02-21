@@ -20,30 +20,30 @@
             if ($_REQUEST){
 
                 if (!isset($_SESSION['menu'])) {
-                    $men = new Menu($dia, $fecha);
+                    $menu = new Menu($dia, $fecha);
                 } else {
-                    $men = unserialize($_SESSION['menu']);
+                    $menu = unserialize($_SESSION['menu']);
                 }
 
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     if (isset($_GET['primerosPlatos'])) {
-                        $men->setPrimerosPlatos($_GET['primerosPlatos']);
+                        $menu->setPrimerosPlatos($_GET['primerosPlatos']);
                     }
                     if (isset($_GET['segundosPlatos'])) {
-                        $men->setSegundosPlatos($_GET['segundosPlatos']);
+                        $menu->setSegundosPlatos($_GET['segundosPlatos']);
                     }
                     if (isset($_GET['postres'])) {
-                        $men->setPostres($_GET['postres']);
+                        $menu->setPostres($_GET['postres']);
                     }
                 }
 
 
                 if (isset($_GET['Añadir1']) || isset($_GET['Añadir2']) || isset($_GET['Añadir3'])){
-                    echo "<h2>Menú del " . $men->getDia() . ", " . $men->getFecha() . "</h2>";
+                    echo "<h2>Menú del " . $menu->getDia() . ", " . $menu->getFecha() . "</h2>";
                     echo "<form action='' method='get'>
                             <h3>Primeros platos</h3>";
 
-                    $primerosPlatos = $men->getPrimerosPlatos();
+                    $primerosPlatos = $menu->getPrimerosPlatos();
                     $numPrimerosPlatos = count($primerosPlatos);
 
                     /*foreach ($primerosPlatos as $index => $plato) {
@@ -61,7 +61,7 @@
                         <input type='submit' value='Añadir' name='Añadir1'><br>
                         <h3>Segundos platos</h3>";
 
-                    $segundosPlatos = $men->getSegundosPlatos();
+                    $segundosPlatos = $menu->getSegundosPlatos();
                     $numSegundosPlatos = count($segundosPlatos);
 
                     /*foreach ($segundosPlatos as $index => $plato) {
@@ -79,7 +79,7 @@
                         <input type='submit' value='Añadir' name='Añadir2'><br>
                         <h3>Postres</h3>";
 
-                    $postres = $men->getPostres();
+                    $postres = $menu->getPostres();
                     $numPostres = count($postres);
 
                     /*foreach ($postres as $index => $plato) {
@@ -98,7 +98,7 @@
                         <input type='submit' value='Confeccionar carta' name='confe'>
                     </form>";
                     
-                    $_SESSION['menu'] = serialize($men);
+                    $_SESSION['menu'] = serialize($menu);
                     //session_destroy();
                     
                 }
@@ -107,24 +107,24 @@
                         <div class="confe">
                             <img src="images/imgA.png" alt="">
                             <h2>Menú del día</h2>
-                            <?php echo "<h3>" . $men->getDia() . ", " . $men->getFecha() . "</h3>"; ?>
+                            <?php echo "<h3>" . $menu->getDia() . ", " . $menu->getFecha() . "</h3>"; ?>
                             <br><br>
                             <h3>Primeros platos</h3>
-                            <?php foreach ($men->getPrimerosPlatos() as $plato) {
+                            <?php foreach ($menu->getPrimerosPlatos() as $plato) {
                             echo $plato ;
                             if (!empty($plato)) { 
                                 echo "<br>"; 
                             } 
                             }?><br>
                             <h3>Segundos platos</h3>
-                            <?php foreach ($men->getSegundosPlatos() as $plato) {
+                            <?php foreach ($menu->getSegundosPlatos() as $plato) {
                             echo $plato ;
                             if (!empty($plato)) { 
                                 echo "<br>"; 
                             } 
                             }?><br>
                             <h3>Postres</h3>
-                            <?php foreach ($men->getPostres() as $plato) {
+                            <?php foreach ($menu->getPostres() as $plato) {
                             echo $plato ;
                             if (!empty($plato)) { 
                                 echo "<br>"; 
@@ -135,7 +135,7 @@
                     <?php
                 }
                 else {
-                    echo "<h2>Menú del " . $men->getDia() . ", " . $men->getFecha() . "</h2>";
+                    echo "<h2>Menú del " . $menu->getDia() . ", " . $menu->getFecha() . "</h2>";
                     echo "<form action='' method='get'>
                         <h3>Primeros platos</h3>
                         <input type='text' name='primerosPlatos'>
@@ -147,7 +147,7 @@
                         <input type='text' name='postres'>
                         <input type='submit' value='Añadir' name='Añadir3'>
                     </form>";
-                    $_SESSION['menu'] = serialize($men);
+                    $_SESSION['menu'] = serialize($menu);
                 }
             }
             else {
