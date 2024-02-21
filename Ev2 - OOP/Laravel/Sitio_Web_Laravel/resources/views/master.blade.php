@@ -15,6 +15,9 @@
                 </div>
             </nav>
             <main>
+                <div class="main">
+                    @yield('contenido')
+                </div>
             </main>
         </section>
         <footer></footer>

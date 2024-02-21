@@ -24,15 +24,24 @@
         Genero: <br>
        {{-- @foreach ($genres as $lista)
             <input class="button" type="button" value={{$lista->genre}}>
-        @endforeach --}} 
+        @endforeach --}}
         <div class="button-container">
             @foreach ($genres as $lista)
                 <input class="button" type="button" value={{$lista->genre}}>
-                @if ($loop->iteration % 4 == 0)
-                    <br> {{-- Agrega un salto de línea después de cada cuarto elemento --}}
+                @if ($loop->iteration % 3 == 0)
+                    <br>
                 @endif
             @endforeach
-</div>
+        </div>
+@endsection
 
-
+@section('contenido')
+    <h1>CATALOGO DE PELICULAS</h1><br><br>
+    <div class="link-container">
+        @foreach ($movies as $lista)
+            <a href=""><img src="{{ asset('../public/images/'.$lista->image) }}" alt="" width="30%"></a>
+            @if ($loop->iteration % 3 == 0)
+                <br>
+            @endif
+        @endforeach
 @endsection
