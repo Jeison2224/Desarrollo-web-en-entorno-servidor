@@ -20,10 +20,16 @@ class MovieController extends Controller
         return view('movie.show', $data);
     }
 
-    public function create() {
+    public function getPelis() {
         $genres = Genre::all();
         $movies = Movie::all();
-        return view('form', array('movies' => $movies,'genres' => $genres));
+        return view('index', array('movies' => $movies,'genres' => $genres));
+    }
+
+    public function getPeli() {
+        $genres = Genre::all();
+        $movies = Movie::all();
+        return view('peli', array('movies' => $movies,'genres' => $genres));
     }
 
     public function store(Request $r) {

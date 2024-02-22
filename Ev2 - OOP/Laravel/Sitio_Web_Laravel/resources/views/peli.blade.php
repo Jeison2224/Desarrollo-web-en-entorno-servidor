@@ -22,9 +22,6 @@
         <input class="titu" type="text" name="director" value=""><br><br>
 
         Genero: <br>
-       {{-- @foreach ($genres as $lista)
-            <input class="button" type="button" value={{$lista->genre}}>
-        @endforeach --}}
         <div class="button-container">
             @foreach ($genres as $lista)
                 <input class="button" type="button" value={{$lista->genre}}>
@@ -36,12 +33,8 @@
 @endsection
 
 @section('contenido')
-    <h1>CATALOGO DE PELICULAS</h1><br><br>
     <div class="link-container">
         @foreach ($movies as $lista)
-            <a href=""><img src="{{ asset('../public/images/'.$lista->image) }}" alt="" width="30%"></a>
-            @if ($loop->iteration % 3 == 0)
-                <br>
-            @endif
+            <h1>{{$lista->title}}</h1>
         @endforeach
 @endsection
