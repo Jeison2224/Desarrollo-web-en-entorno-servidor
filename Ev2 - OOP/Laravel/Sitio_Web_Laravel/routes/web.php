@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/movies', [App\Http\Controllers\MovieController::class, 'getPelis'])->name('movies.list');
+Route::get('/movies/{id}', 'MovieController@show')->name('movie.peli');
+
 
 Route::get('/movie', [App\Http\Controllers\MovieController::class, 'getPeli'])->name('movies.list');

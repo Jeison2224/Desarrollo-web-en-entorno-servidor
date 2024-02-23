@@ -27,7 +27,7 @@
         @endforeach --}}
         <div class="button-container">
             @foreach ($genres as $lista)
-                <input class="button" type="button" value={{$lista->genre}}>
+                <input class="button" type="button" value={{ $lista->genre }}>
                 @if ($loop->iteration % 3 == 0)
                     <br>
                 @endif
@@ -38,10 +38,13 @@
 @section('contenido')
     <h1>CATALOGO DE PELICULAS</h1><br><br>
     <div class="link-container">
-        @foreach ($movies as $lista)
-            <a href="{{ url('/movie') }}"><img src="{{ asset('../public/images/'.$lista->image) }}" alt="" width="30%"></a>
-            @if ($loop->iteration % 3 == 0)
-                <br>
-            @endif
-        @endforeach
+    @foreach ($movies as $movie)
+        <a href="{{ route('movie.show', ['id' => $movie->id]) }}">
+            <img src="{{ asset('images/'.$movie->image) }}" alt="" width="30%">
+        </a>
+        @if ($loop->iteration % 3 == 0)
+            <br>
+        @endif
+    @endforeach
+
 @endsection

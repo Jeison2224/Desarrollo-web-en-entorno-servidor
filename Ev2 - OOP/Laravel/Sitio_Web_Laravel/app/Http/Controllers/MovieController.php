@@ -17,7 +17,7 @@ class MovieController extends Controller
     public function show($id) {
         $p = Movie::find($id);
         $data['movie'] = $p;
-        return view('movie.show', $data);
+        return view('movie.peli', $data);
     }
 
     public function getPelis() {

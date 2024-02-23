@@ -34,7 +34,7 @@
 
 @section('contenido')
     <div class="link-container">
-        @foreach ($movies as $lista)
-            <h1>{{$lista->title}}</h1>
-        @endforeach
+        <p>ID de la película: {{ $movie->id }}</p>
+        <p>Nombre: {{ $movie->name }}</p>
+    </div>
 @endsection
