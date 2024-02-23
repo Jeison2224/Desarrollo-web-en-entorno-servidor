@@ -39,7 +39,7 @@
     <h1>CATALOGO DE PELICULAS</h1><br><br>
     <div class="link-container">
     @foreach ($movies as $movie)
-        <a href="{{ route('movie.show', ['id' => $movie->id]) }}">
+        <a href="">
             <img src="{{ asset('images/'.$movie->image) }}" alt="" width="30%">
         </a>
         @if ($loop->iteration % 3 == 0)
