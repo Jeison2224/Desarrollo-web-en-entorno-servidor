@@ -36,5 +36,14 @@
     <div class="link-container">
         <p>ID de la película: {{ $movie->id }}</p>
         <p>Nombre: {{ $movie->name }}</p>
+        @foreach(explode(', ', $movie->genre) as $genero)
+            <a href="/movies/genero/{{$genero}}">{{$genero}}</a>
+        @endforeach<br><br>
+
+        Director: {{$movie->director}}<br><br>
+
+        Fecha de Estreno: {{ date('d-m-Y', strtotime($movie->release_date)) }}<br><br>
+
+        Duración: {{ $movie->duration }} min.<br><br>
     </div>
 @endsection
