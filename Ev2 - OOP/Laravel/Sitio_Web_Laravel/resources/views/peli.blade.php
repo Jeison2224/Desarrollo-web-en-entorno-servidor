@@ -10,7 +10,7 @@
     <h1>PELICULAS ONLINE</h1><br>
     <button>Ultimas novedades</button> <button>Próximos estrenos</button><br><br><br>
     @isset($movie)
-        <form action="{{ route('movie.update', ['movie' => $movie->id]) }}" method="POST">
+        <form action="" method="POST">
         @method("PUT")
     @else
     @endisset
@@ -34,16 +34,11 @@
 
 @section('contenido')
     <div class="link-container">
-        <p>ID de la película: {{ $movie->id }}</p>
-        <p>Nombre: {{ $movie->name }}</p>
-        @foreach(explode(', ', $movie->genre) as $genero)
-            <a href="/movies/genero/{{$genero}}">{{$genero}}</a>
-        @endforeach<br><br>
+        <img src="{{ asset('images/'.$movie->image) }}" alt="" width="30%">
+        <h4>Nombre:</h4> <span>{{ $movie->title }}</span>
+        <h4>Genero:</h4> <span>{{$genre->name}}</span>
+        <h4>Director:</h4> <span>{{$LeadActors->name}}</span><br><br>
+        <h4>Duración:</h4> <span>{{$movie->duration}}</span><br><br>
 
-        Director: {{$movie->director}}<br><br>
-
-        Fecha de Estreno: {{ date('d-m-Y', strtotime($movie->release_date)) }}<br><br>
-
-        Duración: {{ $movie->duration }} min.<br><br>
     </div>
 @endsection

@@ -26,10 +26,14 @@ class MovieController extends Controller
         return view('index', array('movies' => $movies,'genres' => $genres));
     }
 
-    public function getPeli() {
+    public function getPeli($id) {
         $genres = Genre::all();
-        $movies = Movie::all();
-        return view('peli', array('movies' => $movies,'genres' => $genres));
+        $LeadActors = Movie::with('LeadActor')->find($id);
+        $Directors = Movie::with('Director')->find($id);
+        $genre = Movie::with('Genre')->find($id);
+        $movie = Movie::find($id);
+        $Writers = Movie::with('Writer')->find($id);
+        return view('peli', array('movie' => $movie,'genre' => $genre, 'LeadActors' => $LeadActors, 'Directors' => $Directors, 'genres' => $genres, 'Writer' => $Writers));
     }
 
     public function store(Request $r) {
