@@ -9,13 +9,22 @@ class Movie extends Model
 {
     use HasFactory;
 
-    public function director() { return $this->hasOne('App\Models\Director'); }
-
-    public function leadactor() { return $this->hasOne('App\Models\LeadActor'); }
-
-    public function writer() {
-        return $this->hasMany('App\Models\Writer' , 'movie_id');
+    public function director()
+    {
+        return $this->belongsTo('App\Models\Director');
+    }
+    public function leadActor()
+    {
+        return $this->belongsTo('App\Models\LeadActor');
     }
 
-    public function genre() { return $this->belongsTo('App\Models\Genre'); }
+    public function writers()
+    {
+        return $this->hasMany('App\Models\Writer');
+    }
+
+    public function genre()
+    {
+        return $this->belongsTo('App\Models\Genre');
+    }
 }

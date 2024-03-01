@@ -15,7 +15,7 @@
                 </div>
             </nav>
             <main>
-                <div class="main">
+                <div class="content">
                     @yield('contenido')
                 </div>
             </main>

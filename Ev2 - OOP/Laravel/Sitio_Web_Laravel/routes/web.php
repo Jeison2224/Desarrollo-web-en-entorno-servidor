@@ -20,4 +20,10 @@ Route::get('/', function () {
 Route::get('/movies', [App\Http\Controllers\MovieController::class, 'getPelis'])->name('movie.list');
 
 
-Route::get('/pelicula/{id}', [App\Http\Controllers\MovieController::class, 'getPeli'])->name('pelicula');
+Route::get('/peli/{id}', [App\Http\Controllers\MovieController::class, 'getPeli'])->name('peli');
+
+Route::get('/peliculasporgenero/{genre}', [App\Http\Controllers\GenreController::class, 'peliculasporgenero'])->name('peliculasporgenero');
+
+Route::get('/ultimas-novedades', [App\Http\Controllers\MovieController::class, 'ultimasNovedades'])->name('ultimas-novedades');
+
+Route::get('/proximos-estrenos', [App\Http\Controllers\MovieController::class, 'proximosEstrenos'])->name('proximos-estrenos');

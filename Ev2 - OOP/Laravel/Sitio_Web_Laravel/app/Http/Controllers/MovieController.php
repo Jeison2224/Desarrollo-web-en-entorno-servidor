@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Models\Genre;
+use Carbon\Carbon;
 
 class MovieController extends Controller
 {
@@ -27,13 +28,11 @@ class MovieController extends Controller
     }
 
     public function getPeli($id) {
+        $movie = Movie::with('director', 'leadActor', 'writers', 'genre')->find($id);
         $genres = Genre::all();
-        $LeadActors = Movie::with('LeadActor')->find($id);
-        $Directors = Movie::with('Director')->find($id);
-        $genre = Movie::with('Genre')->find($id);
-        $movie = Movie::find($id);
-        $Writers = Movie::with('Writer')->find($id);
-        return view('peli', array('movie' => $movie,'genre' => $genre, 'LeadActors' => $LeadActors, 'Directors' => $Directors, 'genres' => $genres, 'Writer' => $Writers));
+        $movies = Movie::all();
+    
+        return view('peli', compact('movie', 'genres', 'movies'));
     }
 
     public function store(Request $r) {
@@ -73,5 +72,28 @@ class MovieController extends Controller
         $p = Movie::find($id);
         $p->delete();
         return redirect()->route('movie.index');
+    }
+
+    public function proximosEstrenos() {
+        $fechaActual = Carbon::now()->format('Y-m-d');
+        $genres = Genre::all();
+        $movies = Movie::all();
+
+        // Obtener películas con fecha de estreno a partir de hoy
+        $proximosEstrenos = Movie::where('release_date', '>=', $fechaActual)->get();
+
+        return view('proximos-estrenos', compact('proximosEstrenos', 'genres', 'movies'));
+    }
+
+    public function ultimasNovedades() {
+        $fechaInicio = Carbon::createFromDate(2024-1-1)->toDateString();
+        $fechaActual = Carbon::now()->toDateString();
+        $genres = Genre::all();
+        $movies = Movie::all();
+
+        // Obtener películas desde el 01/01/2024 hasta la fecha actual
+        $ultimasNovedades = Movie::whereBetween('release_date', [$fechaInicio, $fechaActual])->get();
+
+        return view('ultimas-novedades', compact('ultimasNovedades', 'genres', 'movies'));
     }
 }
