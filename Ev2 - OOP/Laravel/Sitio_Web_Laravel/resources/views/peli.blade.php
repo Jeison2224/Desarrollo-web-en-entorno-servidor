@@ -37,8 +37,7 @@
         <img src="{{ asset('images/'.$movie->image) }}" alt="" width="30%">
         <h4>Nombre:</h4> <span>{{ $movie->title }}</span>
         <h4>Genero:</h4> <span>{{$genre->name}}</span>
-        <h4>Director:</h4> <span>{{$LeadActors->name}}</span><br><br>
-        <h4>Duración:</h4> <span>{{$movie->duration}}</span><br><br>
-
+        <h4>Director:</h4> <span>{{$movie->LeadActors}}</span>
+        <h4>Duración:</h4> <span>{{$movie->duration}}</span>
     </div>
 @endsection
