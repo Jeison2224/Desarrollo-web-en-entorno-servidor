@@ -7,8 +7,10 @@
 @section("header", "Peliculas")
 
 @section("content")
-    <h1>PELICULAS ONLINE</h1><br>
-    <button>Ultimas novedades</button> <button>Próximos estrenos</button><br><br><br>
+    <a href="{{ route('movie.list') }}"><h1>PELICULAS ONLINE</h1></a><br>
+    <a href="{{ route('ultimas-novedades') }}"><button>Últimas novedades</button></a> 
+    <a href="{{ route('proximos-estrenos') }}"><button>Próximos estrenos</button></a><br><br><br><br><br><br>
+
     @isset($movie)
         <form action="{{ route('movie.update', ['movie' => $movie->id]) }}" method="POST">
         @method("PUT")
@@ -22,12 +24,11 @@
         <input class="titu" type="text" name="director" value=""><br><br>
 
         Genero: <br>
-       {{-- @foreach ($genres as $lista)
-            <input class="button" type="button" value={{$lista->genre}}>
-        @endforeach --}}
         <div class="button-container">
-            @foreach ($genres as $lista)
-                <input class="button" type="button" value={{ $lista->genre }}>
+            @foreach ($genres as $genre)
+                <a href="{{ route('peliculasporgenero', ['genre' => $genre->id]) }}" class="genre-link">
+                    <input class="buttonG" type="button" value="{{ $genre->genre }}">
+                </a>
                 @if ($loop->iteration % 3 == 0)
                     <br>
                 @endif
@@ -36,15 +37,16 @@
 @endsection
 
 @section('contenido')
-    <h1>CATALOGO DE PELICULAS</h1><br><br>
-    <div class="link-container">
-    @foreach ($movies as $movie)
-        <a href="{{ route('pelicula', ['id' => $movie->id]) }}">
-            <img src="{{ asset('images/'.$movie->image) }}" alt="" width="30%">
-        </a>
-        @if ($loop->iteration % 3 == 0)
-            <br>
-        @endif
-    @endforeach
-
+    <div class="catalogo">
+        <h1>CATALOGO DE PELICULAS</h1><br><br>
+        <div class="link-container">
+        @foreach ($movies as $movie)
+            <a href="{{ route('peli', ['id' => $movie->id]) }}">
+                <img src="{{ asset('images/'.$movie->image) }}" alt="" width="30%">
+            </a>
+            @if ($loop->iteration % 3 == 0)
+                <br>
+            @endif
+        @endforeach
+    </div>
 @endsection

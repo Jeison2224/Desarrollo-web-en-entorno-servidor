@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Genre;
+use App\Models\Movie;
 
 class GenreController extends Controller
 {
@@ -47,4 +48,13 @@ class GenreController extends Controller
         $p->delete();
         return redirect()->route('genre.index');
     }
+
+    public function peliculasporgenero($genreId){
+    $genresAll = Genre::all();
+    $moviesALL = Movie::all();
+    $genre = Genre::find($genreId);
+    $movies = $genre->movies;
+
+    return view('peliculasporgenero', compact('movies', 'genre', 'genresAll', 'moviesALL'));
+}
 }

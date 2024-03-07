@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Writer extends Model
 {
     use HasFactory;
-
-    public function movie() { return $this->belongsTo('App\Models\Movie'); }
+    public function movie()
+    {
+        return $this->belongsTo('App\Models\Movie');
+    }
 }

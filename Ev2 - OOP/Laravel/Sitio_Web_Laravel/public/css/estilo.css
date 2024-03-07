@@ -99,6 +99,16 @@ button, .button {
     background-color: black;
     font-size: 26px;
     margin: 5px;
+    
+}
+
+.buttonG {
+    border-radius: 8px;
+    color: white;
+    background-color: black;
+    font-size: 20px;
+    margin: 5px;
+    width: 140px;
 }
 h1{
     font-size: 38px;
@@ -106,4 +116,35 @@ h1{
 
 .titu {
     font-size: 24px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;  
+}
+
+.imagen{
+    float: left;
+}
+.datosPeli{
+    float: left;
+}
+.sino {
+    float: left;
+    padding: 20px;
+}
+
+.peli {
+    position: absolute;
+    bottom: 15%; 
+}
+
+.peli h1 {
+    padding: 30px;
+    padding-left: 40px;
+}
+strong {
+    font-size: 20px;
+    padding: 20px;
+    margin-top: 20px;
 }

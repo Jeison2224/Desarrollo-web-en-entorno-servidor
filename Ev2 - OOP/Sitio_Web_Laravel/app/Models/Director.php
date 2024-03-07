@@ -9,5 +9,7 @@ class Director extends Model
 {
     use HasFactory;
 
-    public function movie() { return $this->belongsTo('App\Models\Movie'); }
+    public function movie() {
+        return $this->belongsTo('App\Models\Movie');
+    }
 }
