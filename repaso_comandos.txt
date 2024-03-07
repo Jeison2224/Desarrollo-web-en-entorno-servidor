@@ -1,0 +1,20 @@
+ laravel new proyecto
+
+php artisan make:migration create_products_table
+php artisan make:seeder ProductTableSeeder
+DatabaseSeeder.php ($this->call(ProductTableSeeder::class))
+php artisan make:controller ProductController
+php artisan make:model Product
+
+php artisan migrate:fresh --seed
+
+
+php artisan make:migration nombre_de_la_migracion --table=nombre_de_la_tabla
+php artisan migrate
+
+Route::prefix('api')
+        ->middleware('api')
+        ->namespace('App\Http\Controllers')  <------------ AÑADE ESTO
+Route::middleware('web')
+        ->namespace($this->namespace)
+        ->namespace('App\Http\Controllers')
